@@ -1,0 +1,22 @@
+[
+{
+    "cell_type": "code",
+    "execution_count": 1,
+    "outputs": [],
+    "source": "import numpy as np\nimport matplotlib.pylab as plt\n\n%matplotlib inline"
+},
+{
+    "cell_type": "markdown",
+    "source": "## Calculons le lieu d'impact du boulet"
+},
+{
+    "cell_type": "markdown",
+    "source": "Soit un bon vieux canon qui tire avec un angle $\\alpha$ un boulet de poids $m$ avec une force `boum` pendant un temps $t_b$. \n\n * Dessiner la trajectoire du boulet avec une approximation par la méthode des __différences finies à l'ordre 1 et à l'ordre 2__. \n * Calculer le point d'impact exact.\n * Ajouter le frottement de l'air en supposant que le frottement est une force égale à -k fois la vitesse du boulet (k=0.05 est bien)."
+},
+{
+    "cell_type": "code",
+    "execution_count": 2,
+    "outputs": [],
+    "source": "# votre long programme ici :"
+}
+]

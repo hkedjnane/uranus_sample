@@ -1,0 +1,38 @@
+[
+{
+    "cell_type": "markdown",
+    "source": "Les [manipulations d'un tableau](https://docs.scipy.org/doc/numpy-1.15.1/reference/routines.array-manipulation.html) comprennent :\n\n* la réorganisation du tableau (réindexation) \n* l'aggrégation de 2 tableaux ou plus\n* le découpage d'un tableau en 2 ou plus\n\nAvant de regarder ces points, regardons comment Numpy présente les\ndimensions d'un tableau multidimensionnel avec la notion d'axes."
+},
+{
+    "cell_type": "code",
+    "execution_count": 1,
+    "outputs": [
+        {
+            "name": "text/plain",
+            "output_type": "execute_result",
+            "text": "(2, 4, 3)"
+        }
+    ],
+    "source": "import numpy as np\n\n# An array of marks of 3 exams for 4 students in two subjects \n# (therefore 6 marks per students or 12 per subjects)\n\n#                    stud.1     stud.2     stud.3     stud.4\nmarks = np.array([[[7,13,11],  [7,7,13],  [5,9,11],  [7,17,15]],    # subject 1\n                   [[8,12,14], [8,12,12], [8,12,10], [12,16,12]]])  # subject 2\nmarks.shape"
+},
+{
+    "cell_type": "markdown",
+    "source": "## Les axes\n\nUn tableau a des axes qui correspondent aux axes d'un repère dans l'espace. L'ordre des axes\nest celui de l'inclusion des crochets. En 2D un tableau de tableau est un tableau de lignes avec\nchaque ligne qui est un tableau 1D de valeurs. L'ordre est donc lignes puis colonnes (contrairement à l'axes $(x,y)$ dans\nl'espace). En 3D l'ordre est ligne, colonne, profondeur si on désire avoir une image, sinon c'est 0, 1 et 2.\n\nDe très nombreuses opérations sur les tableaux se font suivant un des axes du tableau aussi il est important de \ncomprendre ce que sont les axes.\n\nRegardons l'exemple des notes ci-dessus. Les axes sont\n\n0. les matières\n1. les étudiants \n2. les examens"
+},
+{
+    "cell_type": "markdown",
+    "source": "Faire la moyenne des valeurs suivant l'axe 1 revient à prendre les données suivant l'axe 1 et effectuer les calculs dessus, donc ici en sortir une moyenne."
+},
+{
+    "cell_type": "code",
+    "execution_count": 2,
+    "outputs": [
+        {
+            "name": "text/plain",
+            "output_type": "execute_result",
+            "text": "array([[ 6.5, 11.5, 12.5],\n       [ 9. , 13. , 12. ]])"
+        }
+    ],
+    "source": "marks.mean(axis=1)   # give means for each exam in each subject"
+}
+]

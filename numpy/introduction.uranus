@@ -1,0 +1,44 @@
+[
+{
+    "cell_type": "markdown",
+    "source": "# NumPy - N-dimensional Array manipulations library\n\n[NumPy](https://docs.scipy.org/doc/numpy/user/index.html) is a toolkit for scientific program development. It\nprovides multidimensional arrays that are simple to manipulate and **efficient** (which Python lists are not)."
+},
+{
+    "cell_type": "code",
+    "execution_count": 1,
+    "outputs": [],
+    "source": "import numpy as np  # np is the convention"
+},
+{
+    "cell_type": "markdown",
+    "source": "Unlike lists, __tables have all their values of the same type__.\n\n## Creating an array"
+},
+{
+    "cell_type": "code",
+    "execution_count": 2,
+    "outputs": [
+        {
+            "name": "stdout",
+            "output_type": "stream",
+            "text": "[[1 2 3]\n [4 5 7]]\nshape:  (2, 3)\ntype:  <class 'numpy.int64'>\n"
+        }
+    ],
+    "source": "a = np.array([[1,2,3], [4,5,7]]) # 2D array built from a list\nprint(a)\nprint(\"shape: \",a.shape)\nprint(\"type: \",type(a[0,0]))"
+},
+{
+    "cell_type": "markdown",
+    "source": "#### dtype: the choice of weapons\n\nWhen doing scientific calculation it is important to choose the type of tables to optimize memory, errors, speed.\n\nNumPy offers the following types:\n\n<table border=\"1\" class=\"docutils\">\n<colgroup>\n<col width=\"15%\" />\n<col width=\"85%\" />\n</colgroup>\n<thead valign=\"bottom\">\n<tr class=\"row-odd\"><th class=\"head\">Data type</th>\n<th class=\"head\">Description</th>\n</tr>\n</thead>\n<tbody valign=\"top\">\n<tr class=\"row-even\"><td>bool</td>\n<td>Boolean (True or False) stored as a byte</td>\n</tr>\n<tr class=\"row-odd\"><td>int</td>\n<td>Platform integer (usually either <tt class=\"docutils literal\"><span class=\"pre\">int32</span></tt> or <tt class=\"docutils literal\"><span class=\"pre\">int64</span></tt>) </td>\n</tr>\n<tr class=\"row-even\"><td>int8</td>\n<td>Byte (-128 to 127) </td>\n</tr>\n<tr class=\"row-odd\"><td>int16</td>\n<td>Integer (-32768 to 32767) </td>\n</tr>\n<tr class=\"row-even\"><td>int32</td>\n<td>Integer (-2147483648 to 2147483647) </td>\n</tr>\n<tr class=\"row-odd\"><td>int64</td>\n<td>Integer (9223372036854775808 to 9223372036854775807) </td>\n</tr>\n<tr class=\"row-even\"><td>uint8</td>\n<td>Unsigned integer (0 to 255) </td>\n</tr>\n<tr class=\"row-odd\"><td>uint16</td>\n<td>Unsigned integer (0 to 65535) </td>\n</tr>\n<tr class=\"row-even\"><td>uint32</td>\n<td>Unsigned integer (0 to 4294967295) </td>\n</tr>\n<tr class=\"row-odd\"><td>uint64</td>\n<td>Unsigned integer (0 to 18446744073709551615) </td>\n</tr>\n<tr class=\"row-even\"><td>float</td>\n<td>Shorthand for <tt class=\"docutils literal\"><span class=\"pre\">float64</span></tt>.</td>\n</tr>\n<tr class=\"row-odd\"><td>float16</td>\n<td>Half precision float: sign bit, 5 bits exponent,\n10-bit mantissa</td>\n</tr>\n<tr class=\"row-even\"><td>float32</td>\n<td>Single precision float: sign bit, 8 bits exponent,\n23-bit mantissa</td>\n</tr>\n<tr class=\"row-odd\"><td>float64</td>\n<td>Double precision float: sign bit, 11 bits exponent,\n52-bit mantissa</td>\n</tr>\n<tr class=\"row-even\"><td>complex</td>\n<td>Shorthand for <tt class=\"docutils literal\"><span class=\"pre\">complex128</span></tt>.</td>\n</tr>\n<tr class=\"row-odd\"><td>complex64</td>\n<td>Complex number, represented by two 32-bit floats (real\nand imaginary components) </td>\n</tr>\n<tr class=\"row-even\"><td>complex128</td>\n<td>Complex number, represented by two 64-bit floats (real\nand imaginary components) </td>\n</tr>\n</tbody>\n</table>"
+},
+{
+    "cell_type": "code",
+    "execution_count": 3,
+    "outputs": [
+        {
+            "name": "stdout",
+            "output_type": "stream",
+            "text": "x = [0 1 2 3] uint8\nx = [254   1   2   3] uint8\ny = [254.   1.   2.   3.] float32\n"
+        }
+    ],
+    "source": "x = np.arange(4, dtype= np.uint8)  # arange is the numpy version of range to produce an array\nprint(\"x =\", x, x.dtype)\n\nx[0] = -2                          # 0 - 2 = max -1 for unsigned int\nprint(\"x =\", x, x.dtype)\n\ny = x.astype('float32')            # conversion\nprint(\"y =\", y, y.dtype)"
+}
+]
